@@ -1,0 +1,25 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.resume {
+  width: 750px;
+  border: 1px solid black;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 50px;
+}
+
+.personalInfoForm {
+  padding: 50px;
+  display: flex;
+  gap: 10px;
+}
