@@ -5,6 +5,7 @@ class Resume extends Component {
   render() {
     return(
       <div className="resume">
+        <h2>CV</h2>
         <General />
       </div>
     )

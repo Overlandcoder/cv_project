@@ -15,23 +15,34 @@ class General extends Component {
     this.setState({ email: e.target.value });
   }
 
-  customSubmit = (e) => {
+  submitForm = (e) => {
     e.preventDefault();
-    this.setState({ name: '', email: '' });
+    const personalInfoForm = document.querySelector(".personalInfoForm");
+    const personalInfoDiv = document.querySelector(".personalInfo");
+    personalInfoForm.classList.toggle("hidden");
+    personalInfoDiv.classList.toggle("hidden");
+    // this.setState({ name: '', email: '' });
+    console.log(personalInfoDiv.classList)
   }
 
   render() {
     const { name, email } = this.state;
+    console.log(this.state)
 
     return (
       <div>
-        <form onSubmit={this.customSubmit} className="personalInfoForm">
+        <form onSubmit={this.submitForm} className="personalInfoForm">
           <label htmlFor="name">Name</label>
           <input onChange={this.setName} value={name} type="text" id="name"></input>
           <label htmlFor="email">Email</label>
           <input onChange={this.setEmail} value={email} type="email" id="email"></input>
           <button type="submit">Submit</button>
         </form>
+        <div className="personalInfo hidden">
+          <h3>{this.state.name}</h3>
+          {this.state.email}
+          <button onClick={this.submitForm}>Edit</button>
+        </div>
       </div>
     ) 
   }

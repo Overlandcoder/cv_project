@@ -14,12 +14,24 @@
   border: 1px solid black;
   height: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   margin: 50px;
+  padding: 20px;
 }
 
-.personalInfoForm {
+.personalInfoForm, .personalInfo {
   padding: 50px;
   display: flex;
+  align-items: center;
   gap: 10px;
+}
+
+.personalInfo {
+  gap: 40px;
+}
+
+.hidden {
+  display: none;
 }
