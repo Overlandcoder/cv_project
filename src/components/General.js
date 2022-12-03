@@ -4,7 +4,12 @@ class General extends Component {
   constructor() {
     super();
 
-    this.state = { name: '', email: '' }
+    this.state = {
+      name: '',
+      email: '',
+      infoFormActive: true,
+      infoDivActive: false
+    }
   }
 
   setName = (e) => {
@@ -15,36 +20,47 @@ class General extends Component {
     this.setState({ email: e.target.value });
   }
 
+  toggleForm = () => {
+    this.setState({ infoFormActive: !this.state.infoFormActive });
+  }
+
+  toggleDiv = () => {
+    this.setState({ infoDivActive: !this.state.infoDivActive});
+  }
+
   submitForm = (e) => {
     e.preventDefault();
-    const personalInfoForm = document.querySelector(".personalInfoForm");
-    const personalInfoDiv = document.querySelector(".personalInfo");
-    personalInfoForm.classList.toggle("hidden");
-    personalInfoDiv.classList.toggle("hidden");
-    // this.setState({ name: '', email: '' });
-    console.log(personalInfoDiv.classList)
+    this.toggleForm();
+    this.toggleDiv();
+  }
+
+  showForm = () => {
+    this.toggleForm();
+    this.toggleDiv();
   }
 
   render() {
     const { name, email } = this.state;
-    console.log(this.state)
 
     return (
       <div>
-        <form onSubmit={this.submitForm} className="personalInfoForm">
-          <label htmlFor="name">Name</label>
-          <input onChange={this.setName} value={name} type="text" id="name"></input>
-          <label htmlFor="email">Email</label>
-          <input onChange={this.setEmail} value={email} type="email" id="email"></input>
-          <button type="submit">Submit</button>
-        </form>
-        <div className="personalInfo hidden">
-          <h3>{this.state.name}</h3>
-          {this.state.email}
-          <button onClick={this.submitForm}>Edit</button>
-        </div>
+        {this.state.infoFormActive ?
+          <form onSubmit={this.submitForm} className="personal-info-form">
+            <label htmlFor="name">Name</label>
+            <input onChange={this.setName} value={name} type="text" id="name"></input>
+            <label htmlFor="email">Email</label>
+            <input onChange={this.setEmail} value={email} type="email" id="email"></input>
+            <button type="submit">Submit</button>
+          </form>
+          :
+          <div className="personal-info">
+            <h3>{this.state.name}</h3>
+            {this.state.email}
+            <button onClick={this.showForm}>Edit</button>
+          </div>
+        }
       </div>
-    ) 
+    )
   }
 }
 
