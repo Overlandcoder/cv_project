@@ -3,10 +3,6 @@
   margin: 0;
 }
 
-*:hover {
-  border: 1px solid purple;
-}
-
 .container {
   display: flex;
   justify-content: center;
@@ -25,18 +21,14 @@
   margin-top: 50px;
 }
 
-.personalInfoForm, .personalInfo {
+.personal-info-form, .personal-info {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-.personalInfo {
+.personal-info {
   gap: 40px;
-}
-
-.hidden {
-  display: none;
 }
 
 .experience {
@@ -63,4 +55,8 @@
   width: 120px;
   text-align: center;
   margin-top: 15px;
+}
+
+.experience-info {
+  margin: 10px;
 }
