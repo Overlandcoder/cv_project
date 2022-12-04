@@ -50,7 +50,7 @@ class Experience extends Component {
 
         <div>
           {this.state.jobs.map(job => {
-            return <div key={this.state.job.id} className="experience-info">
+            return <div key={job.id} className="experience-info">
                     <div>{job.company}</div>
                     <div>{job.position}</div>
                     <div>{job.description}</div>
