@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
 // import './App.css';
-import Resume from './components/Resume';
+import General from "./components/General";
+import Experience from "./components/Experience";
 
 class App extends Component {
   render() {
     return (
       <div className="container">
-        <Resume />
+        <div className="resume">
+          <h2>CV</h2>
+          <General />
+          <Experience />
+        </div>
       </div>
     );
   }
