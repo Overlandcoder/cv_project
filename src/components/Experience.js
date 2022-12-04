@@ -58,7 +58,6 @@ class Experience extends Component {
                     <div>{job.description}</div>
                     <div>From: {job.startDate}</div>
                     <div>To: {job.endDate}</div>
-                    <button onClick={this.toggleForm}>Edit</button>
                     <button onClick={this.handleDelete.bind(this, job.id)}>Remove</button>
                    </div>;
           })}
