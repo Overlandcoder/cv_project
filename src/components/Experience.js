@@ -32,10 +32,6 @@ class Experience extends Component {
     this.setState({ experienceFormActive: !this.state.experienceFormActive });
   }
 
-  toggleDiv = () => {
-    this.setState({ experienceDivActive: !this.state.experienceDivActive });
-  }
-
   submitForm = (e) => {
     e.preventDefault();
     this.setState({
@@ -43,7 +39,6 @@ class Experience extends Component {
       job: { id: uniqid() }
     });
     this.toggleForm();
-    this.toggleDiv();
   }
 
   // handleDelete = 
