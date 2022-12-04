@@ -41,7 +41,9 @@ class Experience extends Component {
     this.toggleForm();
   }
 
-  // handleDelete = 
+  handleDelete = (id) => {
+    this.setState({ jobs: this.state.jobs.filter(job => job.id !== id) });
+  }
 
   render() {
     return(
@@ -57,7 +59,7 @@ class Experience extends Component {
                     <div>From: {job.startDate}</div>
                     <div>To: {job.endDate}</div>
                     <button onClick={this.toggleForm}>Edit</button>
-                    <button onClick={this.handleDelete}>Remove</button>
+                    <button onClick={this.handleDelete.bind(this, job.id)}>Remove</button>
                    </div>;
           })}
         </div>
