@@ -36,7 +36,7 @@ class Experience extends Component {
     e.preventDefault();
     this.setState({
       jobs: this.state.jobs.concat(this.state.job),
-      job: { id: uniqid() }
+      job: { ...this.state.job, id: uniqid() }
     });
     this.toggleForm();
   }
