@@ -1,67 +1,50 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 
-class General extends Component {
-  constructor() {
-    super();
+const General = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [infoFormActive, setInfoFormActive] = useState(true);
 
-    this.state = {
-      name: '',
-      email: '',
-      infoFormActive: true,
-      infoDivActive: false
+  const toggleForm = () => {
+    if (infoFormActive) {
+      setInfoFormActive(false)
+    } else {
+      setInfoFormActive(true)
     }
   }
 
-  setName = (e) => {
-    this.setState({ name: e.target.value });
+  const handleNameChange = (event) => {
+    setName(event.target.value);
   }
 
-  setEmail = (e) => {
-    this.setState({ email: e.target.value });
+  const handleEmailChange = (event) => {
+    setEmail(event.target.value);
   }
 
-  toggleForm = () => {
-    this.setState({ infoFormActive: !this.state.infoFormActive });
-  }
-
-  toggleDiv = () => {
-    this.setState({ infoDivActive: !this.state.infoDivActive});
-  }
-
-  submitForm = (e) => {
+  const submitForm = (e) => {
     e.preventDefault();
-    this.toggleForm();
-    this.toggleDiv();
+    toggleForm();
   }
 
-  showForm = () => {
-    this.toggleForm();
-    this.toggleDiv();
-  }
-
-  render() {
-    const { name, email } = this.state;
-
-    return (
-      <div>
-        {this.state.infoFormActive ?
-          <form onSubmit={this.submitForm} className="personal-info-form">
-            <label htmlFor="name">Name</label>
-            <input onChange={this.setName} value={name} type="text" id="name"></input>
-            <label htmlFor="email">Email</label>
-            <input onChange={this.setEmail} value={email} type="email" id="email"></input>
-            <button type="submit">Submit</button>
-          </form>
-          :
-          <div className="personal-info">
-            <h3>{this.state.name}</h3>
-            {this.state.email}
-            <button onClick={this.showForm}>Edit</button>
-          </div>
-        }
-      </div>
-    )
-  }
+  return (
+    <div>
+      {infoFormActive ?
+        <form onSubmit={submitForm} className="personal-info-form">
+          <label htmlFor="name">Name</label>
+          <input onChange={handleNameChange} value={name} type="text" id="name"></input>
+          <label htmlFor="email">Email</label>
+          <input onChange={handleEmailChange} value={email} type="email" id="email"></input>
+          <button type="submit">Submit</button>
+        </form>
+        :
+        <div className="personal-info">
+          <h3>{name}</h3>
+          {email}
+          <button onClick={toggleForm}>Edit</button>
+        </div>
+      }
+    </div>
+  )
 }
 
 export default General;
