@@ -41,13 +41,12 @@ const Experience = () => {
       <div>
         {jobs.map(job => {
           return <div key={job.id} className="experience-info">
-            {console.log(job)}
                   <div>{job.company}</div>
                   <div>{job.position}</div>
                   <div>{job.description}</div>
                   <div>From: {job.startDate}</div>
                   <div>To: {job.endDate}</div>
-                  <button onClick={handleDelete(job.id)}>Remove</button>
+                  <button onClick={() => handleDelete(job.id)}>Remove</button>
                   </div>;
         })}
       </div>
