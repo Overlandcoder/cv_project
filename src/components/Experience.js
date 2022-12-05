@@ -11,8 +11,7 @@ const Experience = () => {
       description: '',
       startDate: '',
       endDate: '',
-      experienceFormActive: true,
-      experienceDivActive: false
+      experienceFormActive: true
     }
   );
 
@@ -40,7 +39,6 @@ const Experience = () => {
       <h4>Experience</h4>
 
       <div>
-        test
         {jobs.map(job => {
           return <div key={job.id} className="experience-info">
             {console.log(job)}
