@@ -27,8 +27,8 @@ const Experience = () => {
 
   const submitForm = (e) => {
     e.preventDefault();
-    setJobs(jobs.concat(job));
     setJob({ ...job, id: uniqid() });
+    setJobs(jobs.concat(job));
     toggleForm();
   }
 
