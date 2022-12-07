@@ -18,16 +18,16 @@ const Experience = () => {
   const handleChange = (event) => {
     const name = event.target.name;
     const value = event.target.value;
-    setJob({ ...job, [name]: value, id: uniqid() });
+    setJob({ ...job, [name]: value });
   }
 
   const toggleForm = () => {
-    setJob({ ...job, experienceFormActive: !job.experienceFormActive });
+    setJob(j => ({ ...j, experienceFormActive: !j.experienceFormActive }));
   }
 
   const submitForm = (e) => {
     e.preventDefault();
-    // setJob({ ...job, id: uniqid() });
+    setJob({ ...job, id: uniqid() });
     setJobs(jobs.concat(job));
     toggleForm();
   }
