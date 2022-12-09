@@ -5,21 +5,9 @@ const General = () => {
   const [email, setEmail] = useState("");
   const [infoFormActive, setInfoFormActive] = useState(true);
 
-  const toggleForm = () => {
-    if (infoFormActive) {
-      setInfoFormActive(false)
-    } else {
-      setInfoFormActive(true)
-    }
-  }
-
-  const handleNameChange = (event) => {
-    setName(event.target.value);
-  }
-
-  const handleEmailChange = (event) => {
-    setEmail(event.target.value);
-  }
+  const toggleForm = () => setInfoFormActive(!infoFormActive);
+  const handleNameChange = event => setName(event.target.value);
+  const handleEmailChange = event => setEmail(event.target.value);
 
   const submitForm = (e) => {
     e.preventDefault();
